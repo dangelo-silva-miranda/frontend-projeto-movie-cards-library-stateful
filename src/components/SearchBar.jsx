@@ -1,45 +1,40 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+    const { searchText,
+      onSearchTextChange,
+      // bookmarkedOnly,
+      // onBookmarkedChange,
+      // selectedGenre,
+      // onSelectedGenreChange
+    } = this.props;
     return (
-      <div>
-        <p>SEARCHBAR</p>
-        <p>
-          {searchText}
-          {' '}
-          {onSearchTextChange}
-          {' '}
-          {bookmarkedOnly}
-          {' '}
-          {onBookmarkedChange}
-          {' '}
-          {selectedGenre}
-          {' '}
-          {onSelectedGenreChange}
-        </p>
-        <form data-testid="search-bar-form">
 
-          <p>PARAGRAFO</p>
-          <label htmlFor="text-input" data-testid="text-input-label">
-            Inclui o texto:
-            <input
-              id="text-input"
-              type="text"
-              value={ searchText }
-              onChange={ onSearchTextChange }
-              data-testid="text-input"
-            />
-          </label>
-        </form>
-      </div>
+      <form data-testid="search-bar-form">
+        <label htmlFor="text-input" data-testid="text-input-label">
+          Inclui o texto:
+          <input
+            id="text-input"
+            type="text"
+            value={ searchText }
+            onChange={ onSearchTextChange }
+            data-testid="text-input"
+          />
+        </label>
+      </form>
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+}.isRequired;
 
 export default SearchBar;
