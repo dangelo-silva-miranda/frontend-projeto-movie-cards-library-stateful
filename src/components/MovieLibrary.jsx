@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -24,6 +24,8 @@ class MovieLibrary extends Component {
 
   onSelectedGenreChange = () => '';
 
+  onClick = () => '';
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
@@ -38,7 +40,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={ this.onSelectedGenreChange }
         />
         <MovieList movies={ movies } />
-        {/* <AddMovie /> */}
+        <AddMovie onClick={ this.onClick } />
       </div>
     );
   }
