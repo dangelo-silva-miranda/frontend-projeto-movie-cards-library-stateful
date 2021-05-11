@@ -18,13 +18,25 @@ class MovieLibrary extends Component {
     };
   }
 
-  onSearchTextChange = () => '';
+  onSearchTextChange = ({ target: { value } }) => {
+    this.setState({ searchText: value });
+  }
 
-  onBookmarkedChange = () => '';
+  onBookmarkedChange = ({ target: { checked } }) => {
+    this.setState({ bookmarkedOnly: checked });
+  }
 
-  onSelectedGenreChange = () => '';
+  onSelectedGenreChange = ({ target: { value } }) => {
+    this.setState({ selectedGenre: value });
+  }
 
-  onClick = () => '';
+  onClick = (newMovie) => {
+    this.setState(
+      (prevState) => ({
+        movies: [...prevState.movies, newMovie],
+      }),
+    );
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
